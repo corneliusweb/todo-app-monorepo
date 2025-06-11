@@ -9,10 +9,15 @@ const fetchTodos = async () => {
 };
 
 export default function AllTodos() {
-	const { data } = useQuery({
+	const { data, isLoading, isError, error } = useQuery({
 		queryKey: ['todos'],
 		queryFn: fetchTodos,
 	});
+
+	// check loading state before displaying error
+	if (isLoading) return <p>Loading todos...</p>;
+
+	if (isError) return <p>Error: {error.message}</p>;
 
 	return (
 		<div>
