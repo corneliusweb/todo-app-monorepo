@@ -43,7 +43,19 @@ export default function AddTodo() {
 
 	return (
 		<div>
-			
+			<h1>Add New Todo</h1>
+			<form onSubmit={handleSubmit}>
+				<input
+					type="text"
+					placeholder="Enter todo"
+					value={todoText}
+					onChange={(e) => setTodoText(e.target.value)}
+				/>
+				<button type="submit">Add</button>
+			</form>
+
+			{mutation.isPending ? <p>Adding todo...</p> : undefined}
+			{mutation.isError ? <p>Error: {mutation.error.message}</p> : undefined}
 		</div>
 	);
 }
