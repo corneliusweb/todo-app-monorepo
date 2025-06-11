@@ -12,3 +12,38 @@ const createTodo = async (newTodo) => {
 	return res.json();
 };
 
+export default function AddTodo() {
+	const [todoText, setTodoText] = useState('');
+	const navigate = useNavigate();
+	const queryClient = useQueryClient();
+
+	// useMutation for POST
+	const mutation = useMutation({
+		mutationFn: createTodo,
+		onSuccess: () => {
+			queryClient.invalidateQueries(['todos']);
+			navigate('/'); // take us back to home
+		},
+	});
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+
+		if (!todoText.trim()) return;
+
+		const newTodo = {
+			todo: todoText,
+			completed: false,
+			userId: 1,
+		};
+
+		mutation.mutate(newTodo);
+		setTodoText('');
+	};
+
+	return (
+		<div>
+			
+		</div>
+	);
+}
