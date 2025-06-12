@@ -1,12 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
-import AllTodos from './components/AllTodos';
-import TodoDetails from './components/TodoDetails';
-import AddTodo from './components/AddTodo';
+import Home from './pages/Home';
+import AllTodos from './pages/AllTodos';
+import TodoDetails from './pages/TodoDetails';
+import AddTodo from './pages/AddTodo';
 
 export default function App() {
-	return <>
-      <AllTodos />
-      <TodoDetails />
-      <AddTodo />
-   </>
+	return (
+		<div className="app">
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/todos" element={<AllTodos />} />
+				<Route path="/todos/:id" element={<TodoDetails />} />
+				<Route path="/add-todo" element={<AddTodo />} />
+			</Routes>
+		</div>
+	);
 }
