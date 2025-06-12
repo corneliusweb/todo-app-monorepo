@@ -1,38 +1,45 @@
 import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
-const fetchTodoById = async (id) => {
+const fetchTodo = async (id) => {
 	const res = await fetch(`https://dummyjson.com/todos/${id}`);
 	if (!res.ok) {
-		throw new Error('Failed to fetch todo details');
+		throw new Error('Failed to fetch todo');
 	}
 	return res.json();
 };
 
-export default function TodoDetails() {
-	const { id } = useParams(); // I will have the instructor from LMS to thank for this one😂
+const TodoDetails = () => {
+	const { id } = useParams();
+
 	const { data, isLoading, isError, error } = useQuery({
 		queryKey: ['todo', id],
-		queryFn: () => fetchTodoById(id),
+		queryFn: () => fetchTodo(id),
 	});
 
-	if (isLoading) return <p>Loading todo details...</p>;
+	if (isLoading) {
+		return <div className="loading">Loading todo details...</div>;
+	}
 
-	if (isError) return <p>Error: {error.message}</p>;
+	if (isError) {
+		return <div className="error">Error: {error.message}</div>;
+	}
 
 	return (
-		console.log(<div>
-			<h1>Todo Details</h1>
-			<p>
-				<strong>Todo ID:</strong> {data.id}
-			</p>
-			<p>
-				<strong>Task:</strong> {data.todo}
-			</p>
-			<p>
-				<strong>Status:</strong>{' '}
-				{data.completed ? 'Completed ✅' : 'Not completed ❌'}
-			</p>
-		</div>)
+		<div className="todo-details">
+			<Link to="/todos" className="back-link">← Back to Todos</Link>
+			<div className="todo-card">
+				<h1>{data.todo}</h1>
+				<div className="todo-info">
+					<span className={`status ${data.completed ? 'completed' : 'pending'}`}>
+						{data.completed ? 'Completed' : 'Pending'}
+					</span>
+					<p className="todo-id">Todo ID: {data.id}</p>
+					<p className="user-id">User ID: {data.userId}</p>
+				</div>
+			</div>
+		</div>
 	);
-}
+};
+
+export default TodoDetails;
