@@ -39,3 +39,65 @@ body {
 .error {
   color: #ff4d4f;
 }
+
+/* Todo Details Styles */
+.todo-details {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #1677ff;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.todo-card {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-card h1 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.8em;
+}
+
+.todo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.todo-id, .user-id {
+  margin: 0;
+  color: #666;
+  font-size: 1.1em;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.status.completed {
+  background: #e6ffe6;
+  color: #006600;
+}
+
+.status.pending {
+  background: #fff3e6;
+  color: #cc7700;
+}
