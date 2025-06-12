@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import AllTodos from './pages/AllTodos';
 import TodoDetails from './pages/TodoDetails';
 import AddTodo from './pages/AddTodo';
+import TestError from './pages/TestError';
 
 export default function App() {
 	return (
@@ -12,6 +13,7 @@ export default function App() {
 				<Route path="/todos" element={<AllTodos />} />
 				<Route path="/todos/:id" element={<TodoDetails />} />
 				<Route path="/add-todo" element={<AddTodo />} />
+				<Route path="/test-error" element={<TestError />} />
 			</Routes>
 		</div>
 	);
