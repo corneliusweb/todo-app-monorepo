@@ -52,7 +52,7 @@ const AddTodoForm = ({ onSuccess }) => {
           style={{
             padding: '8px 16px',
             borderRadius: 4,
-            background: '#1677ff',
+            background: '#10B981',
             color: 'white',
             border: 'none',
             cursor: mutation.isPending ? 'not-allowed' : 'pointer',
