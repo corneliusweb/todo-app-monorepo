@@ -17,8 +17,9 @@ const contentStyle = {
   background: 'white',
   borderRadius: 8,
   padding: 24,
-  minWidth: 320,
-  maxWidth: '90vw',
+  minWidth: 300,
+  width: 350,
+  maxWidth: '60vw',
   boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
   position: 'relative',
 };
