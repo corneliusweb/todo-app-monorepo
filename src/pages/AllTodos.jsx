@@ -1,13 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState, useMemo } from 'react';
 import TodoList from '../components/todo/TodoList';
+import Modal from '../components/Modal';
+import AddTodoForm from '../components/AddTodoForm';
 
 const fetchTodos = async () => {
+	console.log('Fetching todos...');
 	const res = await fetch('https://dummyjson.com/todos');
 	if (!res.ok) {
 		throw new Error('Failed to fetch todos');
 	}
 	const data = await res.json();
+	console.log('Fetched todos:', data);
 	return data;
 };
 
@@ -23,11 +27,14 @@ const AllTodos = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchQuery, setSearchQuery] = useState('');
 	const [statusFilter, setStatusFilter] = useState(FILTER_OPTIONS.ALL);
+	const [showModal, setShowModal] = useState(false);
 	
 	const { data, isLoading, isError, error } = useQuery({
 		queryKey: ['todos'],
 		queryFn: fetchTodos,
 	});
+
+	console.log('Query state:', { data, isLoading, isError, error });
 
 	// Always call hooks before any return
 	const filteredTodos = useMemo(() => {
@@ -76,7 +83,16 @@ const AllTodos = () => {
 	return (
 		<div className="all-todos">
 			<h1>My Todo List</h1>
-			
+			<button
+				className="nav-link"
+				style={{ marginBottom: 16, background: '#52c41a', border: 'none', cursor: 'pointer' }}
+				onClick={() => setShowModal(true)}
+			>
+				Add Todo
+			</button>
+			<Modal open={showModal} onClose={() => setShowModal(false)}>
+				<AddTodoForm onSuccess={() => setShowModal(false)} />
+			</Modal>
 			<div className="filters">
 				<div className="search-box">
 					<input
