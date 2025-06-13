@@ -4,6 +4,7 @@ import AllTodos from './pages/AllTodos';
 import TodoDetails from './pages/TodoDetails';
 import AddTodo from './pages/AddTodo';
 import TestError from './pages/TestError';
+import NotFound from './pages/NotFound';
 
 export default function App() {
 	return (
@@ -14,6 +15,7 @@ export default function App() {
 				<Route path="/todos/:id" element={<TodoDetails />} />
 				<Route path="/add-todo" element={<AddTodo />} />
 				<Route path="/test-error" element={<TestError />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</div>
 	);
