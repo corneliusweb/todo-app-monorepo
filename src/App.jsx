@@ -5,6 +5,7 @@ import TodoDetails from './pages/TodoDetails';
 import AddTodo from './pages/AddTodo';
 import TestError from './pages/TestError';
 import NotFound from './pages/NotFound';
+import './App.css';
 
 export default function App() {
   return (

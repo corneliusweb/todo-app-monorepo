@@ -90,14 +90,22 @@ const AllTodos = () => {
 
   return (
     <div className="all-todos">
-      <h1>My Todo List</h1>
-      <button
-        className="nav-link"
-        style={{ marginBottom: 16, background: '#52c41a', border: 'none', cursor: 'pointer' }}
-        onClick={() => setShowModal(true)}
-      >
-        Add Todo
-      </button>
+      <header>
+        <h1>My Todo</h1>
+        <button
+          className="nav-link"
+          style={{
+            background: '#10B981',
+            border: 'none',
+            cursor: 'pointer',
+            marginTop: '1px',
+            fontSize: '1.05rem',
+          }}
+          onClick={() => setShowModal(true)}
+        >
+          Add Todo
+        </button>
+      </header>
       <Modal open={showModal} onClose={() => setShowModal(false)}>
         <AddTodoForm onSuccess={handleAddSuccess} />
       </Modal>
