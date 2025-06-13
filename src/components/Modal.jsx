@@ -38,12 +38,14 @@ const Modal = ({ open, onClose, children }) => {
   if (!open) return null;
   return (
     <div style={modalStyle} onClick={onClose}>
-      <div style={contentStyle} onClick={e => e.stopPropagation()}>
-        <button style={closeBtnStyle} onClick={onClose} aria-label="Close">&times;</button>
+      <div style={contentStyle} onClick={(e) => e.stopPropagation()}>
+        <button style={closeBtnStyle} onClick={onClose} aria-label="Close">
+          &times;
+        </button>
         {children}
       </div>
     </div>
   );
 };
 
-export default Modal; 
+export default Modal;

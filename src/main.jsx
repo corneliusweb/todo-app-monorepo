@@ -9,14 +9,13 @@ import ErrorBoundary from './components/ErrorBoundary';
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
-	<StrictMode>
-		<BrowserRouter>
-			<QueryClientProvider client={queryClient}>
-				<ErrorBoundary>
-					<App />
-				</ErrorBoundary>
-			</QueryClientProvider>
-		</BrowserRouter>
-	</StrictMode>
+  <StrictMode>
+    <BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
+      </QueryClientProvider>
+    </BrowserRouter>
+  </StrictMode>
 );
-  

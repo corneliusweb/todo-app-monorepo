@@ -9,19 +9,22 @@ const NotFound = () => {
       <p style={{ color: '#666', marginBottom: 30 }}>
         Sorry, the page you are looking for does not exist.
       </p>
-      <Link to="/" style={{
-        display: 'inline-block',
-        padding: '10px 24px',
-        background: '#1677ff',
-        color: 'white',
-        borderRadius: 4,
-        textDecoration: 'none',
-        fontWeight: 500
-      }}>
+      <Link
+        to="/"
+        style={{
+          display: 'inline-block',
+          padding: '10px 24px',
+          background: '#1677ff',
+          color: 'white',
+          borderRadius: 4,
+          textDecoration: 'none',
+          fontWeight: 500,
+        }}
+      >
         Go Home
       </Link>
     </div>
   );
 };
 
-export default NotFound; 
+export default NotFound;

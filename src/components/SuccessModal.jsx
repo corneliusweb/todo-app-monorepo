@@ -34,4 +34,4 @@ const SuccessModal = ({ open, message }) => {
   );
 };
 
-export default SuccessModal; 
+export default SuccessModal;

@@ -46,13 +46,26 @@ const AddTodoForm = ({ onSuccess }) => {
           onChange={(e) => setTodoText(e.target.value)}
           style={{ flex: 1, padding: 8, borderRadius: 4, border: '1px solid #d9d9d9' }}
         />
-        <button type="submit" disabled={mutation.isPending || !todoText.trim()} style={{ padding: '8px 16px', borderRadius: 4, background: '#1677ff', color: 'white', border: 'none', cursor: mutation.isPending ? 'not-allowed' : 'pointer' }}>
+        <button
+          type="submit"
+          disabled={mutation.isPending || !todoText.trim()}
+          style={{
+            padding: '8px 16px',
+            borderRadius: 4,
+            background: '#1677ff',
+            color: 'white',
+            border: 'none',
+            cursor: mutation.isPending ? 'not-allowed' : 'pointer',
+          }}
+        >
           {mutation.isPending ? 'Adding...' : 'Add'}
         </button>
       </form>
-      {mutation.isError && <p style={{ color: '#ff4d4f', marginTop: 16 }}>Error: {mutation.error.message}</p>}
+      {mutation.isError && (
+        <p style={{ color: '#ff4d4f', marginTop: 16 }}>Error: {mutation.error.message}</p>
+      )}
     </div>
   );
 };
 
-export default AddTodoForm; 
+export default AddTodoForm;

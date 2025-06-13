@@ -18,7 +18,9 @@ const Home = () => {
     <div className="home">
       <h1>Welcome to Todo App</h1>
       <nav>
-        <Link to="/todos" className="nav-link">View All Todos</Link>
+        <Link to="/todos" className="nav-link">
+          View All Todos
+        </Link>
         <br />
         <button
           className="nav-link"
@@ -28,7 +30,11 @@ const Home = () => {
           Add Todo
         </button>
         <br />
-        <Link to="/test-error" className="nav-link" style={{ marginTop: 10, background: '#ff4d4f' }}>
+        <Link
+          to="/test-error"
+          className="nav-link"
+          style={{ marginTop: 10, background: '#ff4d4f' }}
+        >
           Test Error Boundary
         </Link>
       </nav>

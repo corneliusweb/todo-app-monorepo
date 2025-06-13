@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f0f2f5;
@@ -30,7 +30,8 @@ body {
   background-color: #4096ff;
 }
 
-.loading, .error {
+.loading,
+.error {
   text-align: center;
   padding: 20px;
   font-size: 1.2em;
@@ -78,7 +79,8 @@ body {
   gap: 12px;
 }
 
-.todo-id, .user-id {
+.todo-id,
+.user-id {
   margin: 0;
   color: #666;
   font-size: 1.1em;
