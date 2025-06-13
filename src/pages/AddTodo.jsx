@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
@@ -14,6 +14,7 @@ const createTodo = async (newTodo) => {
 
 export default function AddTodo() {
 	const [todoText, setTodoText] = useState('');
+	const [showSuccess, setShowSuccess] = useState(false);
 	const navigate = useNavigate();
 	const queryClient = useQueryClient();
 
@@ -22,9 +23,18 @@ export default function AddTodo() {
 		mutationFn: createTodo,
 		onSuccess: () => {
 			queryClient.invalidateQueries(['todos']);
-			navigate('/'); // take us back to home
+			setShowSuccess(true);
 		},
 	});
+
+	useEffect(() => {
+		if (showSuccess) {
+			const timer = setTimeout(() => {
+				navigate('/todos');
+			}, 1500);
+			return () => clearTimeout(timer);
+		}
+	}, [showSuccess, navigate]);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -42,20 +52,23 @@ export default function AddTodo() {
 	};
 
 	return (
-		<div>
+		<div style={{ maxWidth: 400, margin: '40px auto', padding: 20, background: 'white', borderRadius: 8, boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}>
 			<h1>Add New Todo</h1>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} style={{ display: 'flex', gap: 8 }}>
 				<input
 					type="text"
 					placeholder="Enter todo"
 					value={todoText}
 					onChange={(e) => setTodoText(e.target.value)}
+					style={{ flex: 1, padding: 8, borderRadius: 4, border: '1px solid #d9d9d9' }}
 				/>
-				<button type="submit">Add</button>
+				<button type="submit" disabled={mutation.isPending || !todoText.trim()} style={{ padding: '8px 16px', borderRadius: 4, background: '#1677ff', color: 'white', border: 'none', cursor: mutation.isPending ? 'not-allowed' : 'pointer' }}>
+					{mutation.isPending ? 'Adding...' : 'Add'}
+				</button>
 			</form>
 
-			{mutation.isPending ? <p>Adding todo...</p> : undefined}
-			{mutation.isError ? <p>Error: {mutation.error.message}</p> : undefined}
+			{mutation.isError && <p style={{ color: '#ff4d4f', marginTop: 16 }}>Error: {mutation.error.message}</p>}
+			{showSuccess && <p style={{ color: '#52c41a', marginTop: 16 }}>Todo added successfully! Redirecting...</p>}
 		</div>
 	);
 }
