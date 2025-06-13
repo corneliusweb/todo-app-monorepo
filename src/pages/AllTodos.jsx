@@ -3,13 +3,11 @@ import { useState, useMemo } from 'react';
 import TodoList from '../components/todo/TodoList';
 
 const fetchTodos = async () => {
-	console.log('Fetching todos...');
 	const res = await fetch('https://dummyjson.com/todos');
 	if (!res.ok) {
 		throw new Error('Failed to fetch todos');
 	}
 	const data = await res.json();
-	console.log('Fetched todos:', data);
 	return data;
 };
 
@@ -30,8 +28,6 @@ const AllTodos = () => {
 		queryKey: ['todos'],
 		queryFn: fetchTodos,
 	});
-
-	console.log('Query state:', { data, isLoading, isError, error });
 
 	// Always call hooks before any return
 	const filteredTodos = useMemo(() => {
