@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const createTodo = async (newTodo) => {
@@ -13,26 +13,15 @@ const createTodo = async (newTodo) => {
 
 const AddTodoForm = ({ onSuccess }) => {
   const [todoText, setTodoText] = useState('');
-  const [showSuccess, setShowSuccess] = useState(false);
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
     mutationFn: createTodo,
     onSuccess: () => {
       queryClient.invalidateQueries(['todos']);
-      setShowSuccess(true);
       if (onSuccess) onSuccess();
     },
   });
-
-  useEffect(() => {
-    if (showSuccess) {
-      const timer = setTimeout(() => {
-        setShowSuccess(false);
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [showSuccess]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -62,7 +51,6 @@ const AddTodoForm = ({ onSuccess }) => {
         </button>
       </form>
       {mutation.isError && <p style={{ color: '#ff4d4f', marginTop: 16 }}>Error: {mutation.error.message}</p>}
-      {showSuccess && <p style={{ color: '#52c41a', marginTop: 16 }}>Todo added successfully!</p>}
     </div>
   );
 };

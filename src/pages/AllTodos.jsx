@@ -3,6 +3,7 @@ import { useState, useMemo } from 'react';
 import TodoList from '../components/todo/TodoList';
 import Modal from '../components/Modal';
 import AddTodoForm from '../components/AddTodoForm';
+import SuccessModal from '../components/SuccessModal';
 
 const fetchTodos = async () => {
 	console.log('Fetching todos...');
@@ -28,6 +29,7 @@ const AllTodos = () => {
 	const [searchQuery, setSearchQuery] = useState('');
 	const [statusFilter, setStatusFilter] = useState(FILTER_OPTIONS.ALL);
 	const [showModal, setShowModal] = useState(false);
+	const [showSuccess, setShowSuccess] = useState(false);
 	
 	const { data, isLoading, isError, error } = useQuery({
 		queryKey: ['todos'],
@@ -68,6 +70,12 @@ const AllTodos = () => {
 		setCurrentPage(1); // Reset to first page when filter change
 	};
 
+	const handleAddSuccess = () => {
+		setShowModal(false);
+		setShowSuccess(true);
+		setTimeout(() => setShowSuccess(false), 2000);
+	};
+
 	if (isLoading) {
 		return <div className="loading">Loading todos...</div>;
 	}
@@ -91,8 +99,9 @@ const AllTodos = () => {
 				Add Todo
 			</button>
 			<Modal open={showModal} onClose={() => setShowModal(false)}>
-				<AddTodoForm onSuccess={() => setShowModal(false)} />
+				<AddTodoForm onSuccess={handleAddSuccess} />
 			</Modal>
+			<SuccessModal open={showSuccess} message="Todo added successfully!" />
 			<div className="filters">
 				<div className="search-box">
 					<input

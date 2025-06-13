@@ -2,9 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../components/Modal';
 import AddTodoForm from '../components/AddTodoForm';
+import SuccessModal from '../components/SuccessModal';
 
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleAddSuccess = () => {
+    setShowModal(false);
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 2000);
+  };
 
   return (
     <div className="home">
@@ -25,8 +33,9 @@ const Home = () => {
         </Link>
       </nav>
       <Modal open={showModal} onClose={() => setShowModal(false)}>
-        <AddTodoForm onSuccess={() => setShowModal(false)} />
+        <AddTodoForm onSuccess={handleAddSuccess} />
       </Modal>
+      <SuccessModal open={showSuccess} message="Todo added successfully!" />
     </div>
   );
 };
