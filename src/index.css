@@ -9,10 +9,27 @@ body {
 }
 
 .home {
-  max-width: 800px;
   margin: 40px auto;
-  padding: 20px;
   text-align: center;
+}
+
+.home nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+
+  a {
+    background: none;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    display: inline-block;
+    padding: 10px 20px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .all-todos header {
@@ -24,16 +41,8 @@ body {
 .nav-link {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #1677ff;
   color: white;
-  text-decoration: none;
   border-radius: 4px;
-  margin-top: 20px;
-  transition: background-color 0.3s;
-}
-
-.nav-link:hover {
-  background-color: #4096ff;
 }
 
 .loading,

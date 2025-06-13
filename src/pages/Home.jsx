@@ -16,28 +16,29 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1>Welcome to Todo App</h1>
       <nav>
         <Link to="/todos" className="nav-link">
           View All Todos
         </Link>
         <br />
+        <br />
+        <Link to="/test-error" className="nav-link">
+          Test Error Boundary
+        </Link>
         <button
           className="nav-link"
-          style={{ marginTop: 10, background: '#52c41a', border: 'none', cursor: 'pointer' }}
+          style={{
+            background: '#10B981',
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: '1.05rem',
+          }}
           onClick={() => setShowModal(true)}
         >
           Add Todo
         </button>
-        <br />
-        <Link
-          to="/test-error"
-          className="nav-link"
-          style={{ marginTop: 10, background: '#ff4d4f' }}
-        >
-          Test Error Boundary
-        </Link>
       </nav>
+      <h1>Welcome to Todo App</h1>
       <Modal open={showModal} onClose={() => setShowModal(false)}>
         <AddTodoForm onSuccess={handleAddSuccess} />
       </Modal>
