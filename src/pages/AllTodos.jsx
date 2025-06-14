@@ -4,6 +4,7 @@ import TodoList from '../components/todo/TodoList';
 import Modal from '../components/Modal';
 import AddTodoForm from '../components/AddTodoForm';
 import SuccessModal from '../components/SuccessModal';
+import { Link } from 'react-router-dom';
 
 const fetchTodos = async () => {
   console.log('Fetching todos...');
@@ -90,6 +91,9 @@ const AllTodos = () => {
 
   return (
     <div className="all-todos">
+      <Link to="/" className="back-link">
+        ← Back to Todos
+      </Link>
       <header>
         <h1>My Todo</h1>
         <button
