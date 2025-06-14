@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useParams, Link } from 'react-router-dom';
+import { IoChevronBack } from 'react-icons/io5';
 
 const fetchTodo = async (id) => {
   const res = await fetch(`https://dummyjson.com/todos/${id}`);
@@ -28,7 +29,7 @@ const TodoDetails = () => {
   return (
     <div className="todo-details">
       <Link to="/todos" className="back-link">
-        ← Back to Todos
+        <IoChevronBack /> Back to Todos
       </Link>
       <div className="todo-card">
         <h1>{data.todo}</h1>
