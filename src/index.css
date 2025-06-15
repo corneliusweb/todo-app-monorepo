@@ -41,8 +41,12 @@ body {
 
 .home nav {
   display: flex;
+  width: 100%;
   align-items: center;
-  margin-bottom: 50px;
+  justify-content: space-between;
+  margin-bottom: 200px;
+  position: relative;
+  padding-top: 20px;
 
   a {
     background: none;
@@ -53,8 +57,53 @@ body {
     padding: 10px 20px;
 
     &:hover {
-      text-decoration: underline;
+      background-color: #333;
+      color: white;
+      border-radius: 4px;
     }
+  }
+}
+
+.desktop-nav {
+  display: flex;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  padding: 5px;
+}
+
+.mobile-menu {
+  position: absolute;
+  width: 94%;
+  min-height: 150px;
+  top: 65px;
+  left: 0;
+  background: white;
+  border-radius: 2px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+  align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
   }
 }
 

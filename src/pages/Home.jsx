@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { RiMenu2Fill } from 'react-icons/ri';
 import Modal from '../components/Modal';
 import AddTodoForm from '../components/AddTodoForm';
 import SuccessModal from '../components/SuccessModal';
@@ -7,6 +8,7 @@ import SuccessModal from '../components/SuccessModal';
 const Home = () => {
   const [showModal, setShowModal] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleAddSuccess = () => {
     setShowModal(false);
@@ -14,17 +16,32 @@ const Home = () => {
     setTimeout(() => setShowSuccess(false), 2000);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="home">
-      <nav>
-        <Link to="/todos" className="nav-link">
-          View All Todos
-        </Link>
-        <br />
-        <br />
-        <Link to="/test-error" className="nav-link">
-          Test Error Boundary
-        </Link>
+      <nav className="nav-container">
+        <div className="desktop-nav">
+          <Link to="/todos">View All Todos</Link>
+          <Link to="/test-error">Test Error Boundary</Link>
+        </div>
+        <div className="mobile-nav">
+          <button className="menu-button" onClick={toggleMenu}>
+            <RiMenu2Fill />
+          </button>
+          {isMenuOpen && (
+            <div className="mobile-menu">
+              <Link to="/todos" onClick={() => setIsMenuOpen(false)}>
+                View All Todos
+              </Link>
+              <Link to="/test-error" onClick={() => setIsMenuOpen(false)}>
+                Test Error Boundary
+              </Link>
+            </div>
+          )}
+        </div>
         <button
           className="nav-link"
           style={{
