@@ -38,11 +38,13 @@ A modern, responsive Todo application built with React that helps users manage t
 ### Mobile Screen
 
 ![Phone Screen](demo/mobile-screen.gif)
+
 _Creating, viewing, Real-time search, Error boundary and user-friendly error messages and filtering of todos and managing todos_
 
 ### Desktop Screen
 
 ![Laptop Screen](demo/laptop-screen.gif)
+
 _Creating, viewing, Real-time search, Error boundary and user-friendly error messages and filtering of todos and managing todos_
 
 ## Installation and Setup
