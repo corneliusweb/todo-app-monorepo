@@ -33,6 +33,18 @@ A modern, responsive Todo application built with React that helps users manage t
   - Responsive design with mobile-first approach
   - Error boundary implementation for error handling
 
+## Project Demonstration
+
+### Mobile Screen
+
+![Phone Screen](demo/mobile-screen.gif)
+_Creating, viewing, Real-time search, Error boundary and user-friendly error messages and filtering of todos and managing todos_
+
+### Desktop Screen
+
+![Laptop Screen](demo/laptop-screen.gif)
+_Creating, viewing, Real-time search, Error boundary and user-friendly error messages and filtering of todos and managing todos_
+
 ## Installation and Setup
 
 ### Prerequisites
@@ -148,7 +160,7 @@ Query Parameters:
 - `page`: Page number (default: 1)
 - `limit`: Items per page (default: 10)
 - `limit`: Items per response (default: 30)
-- `total`:  254
+- `total`: 254
 
 Response:
 
