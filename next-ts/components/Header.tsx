@@ -7,6 +7,8 @@ import { LuHouse } from 'react-icons/lu';
 const Header = () => {
 	const path = usePathname();
 	const isHome = path === '/';
+	const isErrorPage = path === '/test-error';
+
 	return (
 		<header className='px-8 py-4'>
 			<nav>
@@ -38,9 +40,13 @@ const Header = () => {
 								<LuHouse size={32} />
 							</Link>
 						</li>
-						<li>
-							<button type='button' className='nav-btn'>Add Todo</button>
-						</li>
+						{!isErrorPage && (
+							<li>
+								<button type='button' className='nav-btn'>
+									Add Todo
+								</button>
+							</li>
+						)}
 					</ul>
 				)}
 			</nav>
