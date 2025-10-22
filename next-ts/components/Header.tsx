@@ -29,7 +29,7 @@ const Header = () => {
 	return (
 		<>
 			{path !== '/test-error' && (
-				<header className='px-8 py-4 max-w-5xl mx-auto'>
+				<header className='px-4 py-4 max-w-2xl mx-auto sm:px-0'>
 					<Modal open={showModal} onClose={() => setShowModal(false)}>
 						<AddTodoForm onSuccess={handleAddSuccess} />
 					</Modal>

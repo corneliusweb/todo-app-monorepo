@@ -79,7 +79,7 @@ const Todos = () => {
 	}
 
 	return (
-		<div className='max-w-2xl mx-auto'>
+		<div className='max-w-2xl mx-auto mt-20'>
 			<h1 className='font-bold text-2xl'>My Todos</h1>
 			<div className='my-5 p-5 bg-white rounded-lg shadow-md'>
 				<div className='mb-4'>

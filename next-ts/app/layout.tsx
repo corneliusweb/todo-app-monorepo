@@ -15,8 +15,8 @@ const geistMono = Roboto({
 });
 
 export const metadata: Metadata = {
-	title: 'ToDo App',
-	description: 'Cornelius - ToDo app',
+	title: 'Todo App - Next.js + TS',
+	description: 'Todo App - Next.js + TS version',
 };
 
 export default function RootLayout({
