@@ -41,8 +41,8 @@ const AddTodoForm = ({ onSuccess }: { onSuccess: () => void }) => {
 
 	return (
 		<div>
-			<h2>Add New Todo</h2>
-			<form onSubmit={handleSubmit} className='grid gap-4 mt-9'>
+			<h2 className='text-2xl font-semibold'>Add New Todo</h2>
+			<form onSubmit={handleSubmit} className='grid gap-5 mt-9'>
 				<input
 					type='text'
 					placeholder='Enter todo'
