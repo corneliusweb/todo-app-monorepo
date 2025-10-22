@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-/* @plugin 'daisyui'; */
 
 @theme {
 	--color-page-green: #10b981;
@@ -18,20 +17,14 @@
 		font-family: var(--font-geist-mono);
 		background-color: #f0f2f5;
 	}
-
-	h1,
-	h2,
-	h3 {
-		font-family: var(--font-geist-sans);
-	}
 }
 
 @layer components {
 	.nav-link {
-		@apply text-lg px-5 py-2 block border-b-2 border-b-transparent hover:border-b-page-green;
+		@apply text-lg block border-b-2 border-b-transparent rounded-md px-2 hover:bg-page-green/15 sm:px-5 sm:py-2 sm:hover:border-b-page-green;
 	}
 	.nav-btn {
-		@apply bg-page-green p-2 rounded-md text-white text-lg ml-8 cursor-pointer;
+		@apply bg-page-green p-2 rounded-md text-white text-lg sm:ml-8 cursor-pointer;
 	}
 	.filter-btn {
 		@apply py-2 px-4 bg-white/90 cursor-pointer text-base transition-all duration-300 border border-gray-50 hover:bg-filter-lightblue hover:border-filter-blue;
@@ -52,7 +45,7 @@
 	.pagination-button {
 		@apply py-2 px-4 text-white rounded-md transition-all duration-300 cursor-pointer bg-filter-blue text-base hover:not-disabled:bg-pagination-blue disabled:bg-gray-150 disabled:cursor-not-allowed;
 	}
-	.state-style{
-		@apply text-center p-5 text-xl
+	.state-style {
+		@apply text-center p-5 text-xl;
 	}
 }

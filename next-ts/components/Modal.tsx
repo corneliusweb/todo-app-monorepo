@@ -12,11 +12,11 @@ const Modal: React.FC<IModal> = ({ open, onClose, children }) => {
 			onClick={onClose}
 		>
 			<div
-				className='bg-white rounded-lg p-6 min-w-75 w-87 max-w-[60vw] shadow-md relative'
+				className='bg-white rounded-lg p-6 w-full max-w-[90vw] sm:max-w-md shadow-md relative'
 				onClick={(e) => e.stopPropagation()}
 			>
 				<button
-					className='absolute top-2.5 right-4 text-xl cursor-pointer text-gray-300'
+					className='absolute top-2.5 right-4 text-3xl font-bold cursor-pointer text-gray-800'
 					onClick={onClose}
 					aria-label='Close'
 				>

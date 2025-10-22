@@ -41,7 +41,7 @@ const TodoDetails = () => {
    			>
    				<IoChevronBack /> Back to Todos
    			</Link>
-   			<div className='bg-white rounded-lg p-6 w-75 shadow-md sm: min-w-lg'>
+   			<div className='bg-white rounded-lg p-6 w-96 max-w-[95vw] shadow-md sm:min-w-lg'>
    				<h1 className='mb-5 text-gray-800 text-3xl'>{data.todo}</h1>
    				<div className='flex flex-col'>
    					<span

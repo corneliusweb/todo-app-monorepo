@@ -3,9 +3,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 import type { ITodo } from '@/app/types';
-import Modal from '@/components/Modal';
-import AddTodoForm from '@/components/AddTodoForm';
-import SuccessModal from '@/components/SuccessModal';
 import TodoList from '@/components/todo/TodoList';
 
 const fetchTodos = async () => {
@@ -29,8 +26,6 @@ const Todos = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchQuery, setSearchQuery] = useState('');
 	const [statusFilter, setStatusFilter] = useState(FILTER_OPTIONS.ALL);
-	const [showModal, setShowModal] = useState(false);
-	const [showSuccess, setShowSuccess] = useState(false);
 
 	const { data, isLoading, isError, error } = useQuery({
 		queryKey: ['todos'],
@@ -71,12 +66,6 @@ const Todos = () => {
 		setCurrentPage(1); // Reset to first page when filter change
 	};
 
-	const handleAddSuccess = () => {
-		setShowModal(false);
-		setShowSuccess(true);
-		setTimeout(() => setShowSuccess(false), 2000);
-	};
-
 	if (isLoading) {
 		return <div className='loading'>Loading todos...</div>;
 	}
@@ -92,10 +81,6 @@ const Todos = () => {
 	return (
 		<div className='max-w-2xl mx-auto'>
 			<h1>My Todos</h1>
-			<Modal open={showModal} onClose={() => setShowModal(false)}>
-				<AddTodoForm onSuccess={handleAddSuccess} />
-			</Modal>
-			<SuccessModal open={showSuccess} />
 			<div className='my-5 p-5 bg-white rounded-lg shadow-md'>
 				<div className='mb-4'>
 					<input

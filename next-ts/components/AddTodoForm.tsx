@@ -1,6 +1,6 @@
 'use client';
 
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import type { ITodo } from '@/app/types';
 
@@ -40,20 +40,20 @@ const AddTodoForm = ({ onSuccess }: { onSuccess: () => void }) => {
 	};
 
 	return (
-		<div className='min-w-75'>
+		<div>
 			<h2>Add New Todo</h2>
-			<form onSubmit={handleSubmit} className='flex gap-2'>
+			<form onSubmit={handleSubmit} className='grid gap-4 mt-9'>
 				<input
 					type='text'
 					placeholder='Enter todo'
 					value={todoText}
 					onChange={(e) => setTodoText(e.target.value)}
-					className='flex-1 p-2 rounded-sm border border-gray-300'
+					className='p-2 rounded-sm border border-gray-300 block w-full'
 				/>
 				<button
 					type='submit'
 					disabled={mutation.isPending || !todoText.trim()}
-					className={`py-2 px-4 rounded-sm text-white bg-page-green ${
+					className={`py-2 px-4 rounded-sm w-full text-white bg-page-green ${
 						mutation.isPending ? 'cursor-not-allowed' : 'cursor-pointer'
 					}`}
 				>
