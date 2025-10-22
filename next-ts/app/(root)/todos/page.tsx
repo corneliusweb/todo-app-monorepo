@@ -3,6 +3,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 import type { ITodo } from '@/app/types';
+import Modal from '@/components/Modal';
+import AddTodoForm from '@/components/AddTodoForm';
+import SuccessModal from '@/components/SuccessModal';
 
 const fetchTodos = async () => {
 	const res = await fetch('https://dummyjson.com/todos');
@@ -83,16 +86,15 @@ const Todos = () => {
 
 	if (!data || !data.todos) {
 		return <div className='error'>No data available</div>;
-  }
-  
+	}
+
 	return (
 		<div className='max-w-2xl mx-auto'>
-			
 			<h1>My Todos</h1>
-			{/* <Modal open={showModal} onClose={() => setShowModal(false)}>
+			<Modal open={showModal} onClose={() => setShowModal(false)}>
 				<AddTodoForm onSuccess={handleAddSuccess} />
 			</Modal>
-			<SuccessModal open={showSuccess} message='Todo added successfully!' /> */}
+			<SuccessModal open={showSuccess} />
 			<div className='my-5 p-5 bg-white rounded-lg shadow-md'>
 				<div className='mb-4'>
 					<input
