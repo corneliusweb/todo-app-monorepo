@@ -1,0 +1,25 @@
+import type { ITodo } from '../../types/index';
+import { Link } from 'react-router-dom';
+
+const TodoItem = ({ todo }: { todo: ITodo }) => {
+	return (
+		<div className='bg-white/80 rounded-lg p-3.5 mt-2.5 shadow-md'>
+			<Link to={`/todos/${todo.id}`}>
+				<h3 className='mb-2.5 text-lg font-medium tracking-wide'>
+					{todo.todo}
+				</h3>
+			</Link>
+			<span
+				className={`inline-block py-1 px-2 rounded-sm text-base ${
+					todo.completed
+						? 'bg-completed-light text-completed'
+						: 'bg-pending-light text-pending'
+				}`}
+			>
+				{todo.completed ? 'Completed' : 'Pending'}
+			</span>
+		</div>
+	);
+};
+
+export default TodoItem;

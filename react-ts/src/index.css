@@ -1,1 +1,61 @@
 @import 'tailwindcss';
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./assets/roboto-regular.woff2') format('.woff2');
+	font-display: swap;
+	font-style: normal;
+}
+
+@theme {
+	--color-page-green: #10b981;
+	--color-filter-blue: #1677ff;
+	--color-filter-lightblue: #e6f7ff;
+	--color-pagination-blue: #4096ff;
+	--color-gray-150: #d9d9d9;
+	--color-pending-light: #fff3e6;
+	--color-pending: #cc7700;
+	--color-completed-light: #e6ffe6;
+	--color-completed: #006600;
+}
+
+@layer base {
+	body {
+		font-family: 'Roboto', sans-serif;
+		background-color: #f0f2f5;
+	}
+}
+
+@layer components {
+	.nav-link {
+		@apply text-lg block border-b-2 border-b-transparent rounded-md px-2 hover:bg-page-green/15 sm:hover:bg-transparent sm:px-5 sm:py-2 sm:hover:border-b-page-green;
+	}
+	.nav-btn {
+		@apply bg-page-green p-2 rounded-md text-white text-lg sm:ml-8 cursor-pointer;
+	}
+	.filter-btn {
+		@apply py-2 px-4 bg-white/90 cursor-pointer rounded-md text-base transition-all duration-300 border border-gray-200 font-semibold hover:bg-filter-lightblue hover:border-filter-blue;
+
+		&.active {
+			@apply bg-filter-blue text-white border-filter-blue;
+		}
+	}
+	.search-input {
+		@apply p-2.5 text-base border border-gray-300 rounded-md transition-colors duration-300 focus:outline-0 focus:border-filter-blue w-full focus:border;
+	}
+	.no-results {
+		@apply text-center p-5 text-gray-600 text-lg;
+	}
+	.pagination {
+		@apply flex justify-between items-center gap-5 mt-7;
+	}
+	.pagination-button {
+		@apply py-2 px-4 text-white rounded-md transition-all duration-300 cursor-pointer bg-filter-blue text-base hover:not-disabled:bg-pagination-blue disabled:bg-gray-150 disabled:cursor-not-allowed;
+	}
+	.state-style {
+		@apply text-center p-5 text-xl;
+	}
+	.back-link {
+		@apply text-[#f5deb3] mb-5 text-lg flex w-fit items-center justify-center bg-gray-600 py-2.5 px-4 gap-1.5 rounded-sm hover:text-white;
+	}
+}
