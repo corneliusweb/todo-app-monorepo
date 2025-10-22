@@ -45,7 +45,7 @@ const TodoDetails = () => {
    				<h1 className='mb-5 text-gray-800 text-3xl'>{data.todo}</h1>
    				<div className='flex flex-col'>
    					<span
-   						className={`inline-block py-1 px-2 rounded-sm text-base ${
+   						className={`inline-block py-1 px-2 mb-2 rounded-sm text-base ${
    							data.completed
    								? 'bg-completed-light text-completed'
    								: 'bg-pending-light text-pending'

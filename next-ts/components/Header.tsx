@@ -27,7 +27,7 @@ const Header = () => {
 	};
 
 	return (
-		<header className='px-8 py-4'>
+		<header className='px-8 py-4 max-w-5xl mx-auto'>
 			<Modal open={showModal} onClose={() => setShowModal(false)}>
 				<AddTodoForm onSuccess={handleAddSuccess} />
 			</Modal>
