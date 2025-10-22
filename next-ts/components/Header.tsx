@@ -27,74 +27,78 @@ const Header = () => {
 	};
 
 	return (
-		<header className='px-8 py-4 max-w-5xl mx-auto'>
-			<Modal open={showModal} onClose={() => setShowModal(false)}>
-				<AddTodoForm onSuccess={handleAddSuccess} />
-			</Modal>
-			<SuccessModal open={showSuccess} />
-			<nav>
-				{isHome && (
-					<>
-						<button
-							type='button'
-							className='sm:hidden cursor-pointer'
-							onClick={() => setIsMenuOpen(!isMenuOpen)}
-						>
-							<MdMenu size={32} />
-						</button>
-						<ul
-							className={`sm:flex sm:justify-center sm:items-center ${
-								isMenuOpen
-									? 'grid gap-5 bg-white p-4 rounded-md shadow-md'
-									: 'hidden'
-							}`}
-						>
-							<li>
-								<Link className='nav-link' href='/todos'>
-									Todos
-								</Link>
-							</li>
-							<li>
-								<Link className='nav-link' href='/test-error'>
-									Test Error Boundary
-								</Link>
-							</li>
-							<li>
+		<>
+			{path !== '/test-error' && (
+				<header className='px-8 py-4 max-w-5xl mx-auto'>
+					<Modal open={showModal} onClose={() => setShowModal(false)}>
+						<AddTodoForm onSuccess={handleAddSuccess} />
+					</Modal>
+					<SuccessModal open={showSuccess} />
+					<nav>
+						{isHome && (
+							<>
 								<button
 									type='button'
-									className='nav-btn w-full mt-7 sm:mt-0'
-									onClick={() => setShowModal(true)}
+									className='sm:hidden cursor-pointer'
+									onClick={() => setIsMenuOpen(!isMenuOpen)}
 								>
-									Add Todo
+									<MdMenu size={32} />
 								</button>
-							</li>
-						</ul>
-					</>
-				)}
-
-				{!isHome && (
-					<ul className='flex justify-between items-center'>
-						<li>
-							<Link href='/'>
-								<span className='sr-only'>Home</span>
-								<LuHouse size={32} />
-							</Link>
-						</li>
-						{!isErrorPage && (
-							<li>
-								<button
-									type='button'
-									className='nav-btn'
-									onClick={() => setShowModal(true)}
+								<ul
+									className={`sm:flex sm:justify-center sm:items-center ${
+										isMenuOpen
+											? 'grid gap-5 bg-white p-4 rounded-md shadow-md'
+											: 'hidden'
+									}`}
 								>
-									Add Todo
-								</button>
-							</li>
+									<li>
+										<Link className='nav-link' href='/todos'>
+											Todos
+										</Link>
+									</li>
+									<li>
+										<Link className='nav-link' href='/test-error'>
+											Test Error Boundary
+										</Link>
+									</li>
+									<li>
+										<button
+											type='button'
+											className='nav-btn w-full mt-7 sm:mt-0'
+											onClick={() => setShowModal(true)}
+										>
+											Add Todo
+										</button>
+									</li>
+								</ul>
+							</>
 						)}
-					</ul>
-				)}
-			</nav>
-		</header>
+
+						{!isHome && (
+							<ul className='flex justify-between items-center'>
+								<li>
+									<Link href='/'>
+										<span className='sr-only'>Home</span>
+										<LuHouse size={32} />
+									</Link>
+								</li>
+								{!isErrorPage && (
+									<li>
+										<button
+											type='button'
+											className='nav-btn'
+											onClick={() => setShowModal(true)}
+										>
+											Add Todo
+										</button>
+									</li>
+								)}
+							</ul>
+						)}
+					</nav>
+				</header>
+			)}
+		</>
 	);
 };
 export default Header;

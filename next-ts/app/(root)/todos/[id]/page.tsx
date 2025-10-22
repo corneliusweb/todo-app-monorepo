@@ -37,7 +37,7 @@ const TodoDetails = () => {
 			
 			   <Link
    				href='/todos'
-   				className='text-[#f5deb3] mb-5 text-lg flex w-fit items-center justify-center bg-gray-600 py-2.5 px-4 gap-1.5 rounded-sm hover:text-white'
+   				className='back-link'
    			>
    				<IoChevronBack /> Back to Todos
    			</Link>

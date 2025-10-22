@@ -1,6 +1,4 @@
 const ErrorBoundary = () => {
-  return (
-    <div>ErrorBoundary</div>
-  )
-}
-export default ErrorBoundary
+	throw new Error('This is a test error!');
+};
+export default ErrorBoundary;
