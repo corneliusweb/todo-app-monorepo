@@ -6,6 +6,7 @@ import type { ITodo } from '@/app/types';
 import Modal from '@/components/Modal';
 import AddTodoForm from '@/components/AddTodoForm';
 import SuccessModal from '@/components/SuccessModal';
+import TodoList from '@/components/todo/TodoList';
 
 const fetchTodos = async () => {
 	const res = await fetch('https://dummyjson.com/todos');
@@ -134,7 +135,7 @@ const Todos = () => {
 				</div>
 			</div>
 
-			{/* <TodoList todos={currentTodos} /> */}
+			<TodoList todos={currentTodos} />
 
 			{filteredTodos.length === 0 ? (
 				<div className='no-results'>

@@ -7,6 +7,10 @@
 	--color-filter-lightblue: #e6f7ff;
 	--color-pagination-blue: #4096ff;
 	--color-gray-150: #d9d9d9;
+	--color-pending-light: #fff3e6;
+	--color-pending: #cc7700;
+	--color-completed-light: #e6ffe6;
+	--color-completed: #006600;
 }
 
 @layer base {
@@ -37,16 +41,18 @@
 		}
 	}
 	.search-input {
-		@apply p-2.5 text-base border border-transparent bg-gray-100 transition-colors duration-300 focus:outline-0 focus:border-filter-blue w-full focus:border
+		@apply p-2.5 text-base border border-transparent bg-gray-100 transition-colors duration-300 focus:outline-0 focus:border-filter-blue w-full focus:border;
 	}
-
 	.no-results {
-		@apply text-center p-5 text-gray-600 text-lg
+		@apply text-center p-5 text-gray-600 text-lg;
 	}
 	.pagination {
-		@apply flex justify-between items-center gap-5 mt-7
+		@apply flex justify-between items-center gap-5 mt-7;
 	}
 	.pagination-button {
-		@apply py-2 px-4 text-white rounded-md transition-all duration-300 cursor-pointer bg-filter-blue text-base hover:not-disabled:bg-pagination-blue disabled:bg-gray-150 disabled:cursor-not-allowed
+		@apply py-2 px-4 text-white rounded-md transition-all duration-300 cursor-pointer bg-filter-blue text-base hover:not-disabled:bg-pagination-blue disabled:bg-gray-150 disabled:cursor-not-allowed;
+	}
+	.state-style{
+		@apply text-center p-5 text-xl
 	}
 }
