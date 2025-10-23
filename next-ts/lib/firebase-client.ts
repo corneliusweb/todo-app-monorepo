@@ -3,13 +3,13 @@ import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyAGCJ5fVu1pZtkwbJ3tK_qp8QV85bIiIUI',
-	authDomain: 'todo-app-auth-99c6b.firebaseapp.com',
-	projectId: 'todo-app-auth-99c6b',
-	storageBucket: 'todo-app-auth-99c6b.firebasestorage.app',
-	messagingSenderId: '331012806731',
-	appId: '1:331012806731:web:ad4291f57c8c492ac255ce',
-	measurementId: 'G-W8NE2NCBVJ',
+	apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+	authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+	projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+	storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+	messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+	measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 function createFirebaseApp() {
