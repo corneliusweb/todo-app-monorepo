@@ -3,6 +3,7 @@ import { Space_Grotesk, Roboto } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import QueryProvider from '@/components/QueryProvider';
+import { AuthProvider } from '@/context/AuthContext';
 
 const geistSans = Space_Grotesk({
 	variable: '--font-geist-sans',
@@ -29,10 +30,12 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<QueryProvider>
-					<Header />
-					{children}
-				</QueryProvider>
+				<AuthProvider>
+					<QueryProvider>
+						<Header />
+						{children}
+					</QueryProvider>
+				</AuthProvider>
 			</body>
 		</html>
 	);
