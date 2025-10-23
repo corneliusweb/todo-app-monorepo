@@ -4,12 +4,11 @@
       <h2 class="text-lg">Something went wrong globally.</h2>
       <pre class="text-red-500 text-lg mt-4">
 				{{ error?.toString() }}
-			</pre
-      >
+			</pre>
 
       <div class="w-full flex gap-6 mt-45 justify-center">
         <RouterLink to="/" class="back-link justify-between" @click="resetError">
-          <IoChevronBack /> Back to Home
+          <ChevronLeft /> Back to Home
         </RouterLink>
         <button @click="resetError" class="cursor-pointer back-link">Try again</button>
       </div>
@@ -21,7 +20,7 @@
 <script setup lang="ts">
 import { ref, onErrorCaptured } from 'vue'
 import { RouterLink } from 'vue-router'
-import { IoChevronBack } from 'react-icons/io5'
+import { ChevronLeft } from 'lucide-vue-next'
 
 const hasError = ref(false)
 const error = ref<Error | null>(null)

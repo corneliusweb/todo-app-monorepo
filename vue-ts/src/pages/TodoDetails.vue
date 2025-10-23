@@ -2,7 +2,7 @@
   <div v-if="isLoading" class="state-style">Loading todo details...</div>
   <div v-else-if="isError" class="state-style text-red-500">Error: {{ error?.message }}</div>
   <div v-else class="max-w-fit mx-auto flex flex-col my-10">
-    <RouterLink to="/todos" class="back-link"> <IoChevronBack /> Back to Todos </RouterLink>
+    <RouterLink to="/todos" class="back-link"> <ChevronLeft /> Back to Todos </RouterLink>
     <div class="bg-white rounded-lg p-6 w-96 max-w-[95vw] shadow-md sm:min-w-lg">
       <h1 class="mb-5 text-gray-800 text-3xl">{{ data?.todo }}</h1>
       <div class="flex flex-col">
@@ -24,7 +24,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useQuery } from '@tanstack/vue-query'
-import { IoChevronBack } from 'react-icons/io5'
+import { ChevronLeft  } from 'lucide-vue-next'
 
 const route = useRoute()
 const id = computed(() => route.params.id as string)

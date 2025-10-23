@@ -7,7 +7,7 @@
     <nav>
       <div v-if="isHome">
         <button type="button" class="sm:hidden cursor-pointer" @click="setIsMenuOpen(!isMenuOpen)">
-          <MdMenu :size="32" />
+          <Menu :size="32" />
         </button>
         <ul
           :class="`sm:flex sm:justify-center sm:items-center ${
@@ -33,7 +33,7 @@
           <li>
             <RouterLink to="/">
               <span class="sr-only">Home</span>
-              <LuHouse :size="32" />
+              <Home :size="32" />
             </RouterLink>
           </li>
           <li v-if="!isErrorPage">
@@ -48,8 +48,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { LuHouse } from 'react-icons/lu'
-import { MdMenu } from 'react-icons/md'
+import { Menu, Home } from 'lucide-vue-next'
 import Modal from './Modal.vue'
 import AddTodoForm from './AddTodoForm.vue'
 import SuccessModal from './SuccessModal.vue'
