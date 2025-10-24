@@ -15,7 +15,7 @@ const firebaseConfig = {
 function createFirebaseApp() {
 	try {
 		return !getApps().length ? initializeApp(firebaseConfig) : getApp();
-	} catch (err) {
+	} catch {
 		// if initialize fails, try to return existing app
 		return getApp();
 	}
