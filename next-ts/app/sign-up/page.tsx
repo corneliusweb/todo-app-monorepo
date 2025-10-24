@@ -17,16 +17,16 @@ const SignUpPage = () => {
 	const { user } = useAuth();
 
 	useEffect(() => {
-			// redirect if already logged in
-			if (user) {
-				router.push('/');
-			}
-		}, [user, router]);
-	
+		// redirect if already logged in
 		if (user) {
-			//render nothing while redirecting
-			return null;
+			router.push('/');
 		}
+	}, [user, router]);
+
+	if (user) {
+		//render nothing while redirecting
+		return null;
+	}
 
 	const handleEmailSignUp = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -47,8 +47,13 @@ const SignUpPage = () => {
 		try {
 			await signUp(email, password);
 			router.push('/login'); // redirect to login after successful sign up
-		} catch (err: any) {
-			setError(err.message || 'Failed to create account. Please try again.');
+		} catch (err: unknown) {
+			// check the error type
+			if (err instanceof Error) {
+				setError(err.message);
+			} else {
+				setError('Failed to create account. Please try again.');
+			}
 		} finally {
 			setLoading(false);
 		}
@@ -61,8 +66,12 @@ const SignUpPage = () => {
 		try {
 			await signInWithGoogle();
 			router.push('/'); // redirect to home after successful sign up
-		} catch (err: any) {
-			setError(err.message || 'Failed to sign up with Google.');
+		} catch (err: unknown) {
+			if (err instanceof Error) {
+				setError(err.message);
+			} else {
+				setError('Failed to sign up with Google.');
+			}
 		} finally {
 			setLoading(false);
 		}

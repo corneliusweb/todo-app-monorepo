@@ -34,13 +34,14 @@ const LoginPage = () => {
 			await signIn(email, password);
 			setErrorMessage('✅ Login successful!');
 			router.push('/');
-		} catch (error: any) {
-			setErrorMessage(
-				`❌ ${
-					error.message ||
+		} catch (error: unknown) {
+			if (error instanceof Error) {
+				setErrorMessage(error.message);
+			} else {
+				setErrorMessage(
 					'Failed to login into your account. Please try again.'
-				}`
-			);
+				);
+			}
 		} finally {
 			setLoading(false);
 		}
@@ -51,10 +52,12 @@ const LoginPage = () => {
 		try {
 			await signInWithGoogle();
 			setErrorMessage('✅ Logged in with Google!');
-		} catch (error: any) {
-			setErrorMessage(
-				`❌ ${error.message || 'Failed to login with Google.'}`
-			);
+		} catch (error: unknown) {
+			if (error instanceof Error) {
+				setErrorMessage(error.message);
+			} else {
+				setErrorMessage('Failed to login with Google.');
+			}
 		} finally {
 			setLoading(false);
 		}
