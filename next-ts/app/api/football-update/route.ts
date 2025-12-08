@@ -17,7 +17,8 @@ export async function GET() {
 		'transfers',
 		'venues',
 	];
-
+	let failedCount = 0;
+	
 	async function fetchEndpoint(path: string) {
 		const url = `${BASE_URL}/${path}`;
 		const resp = await fetch(url, {
@@ -29,8 +30,9 @@ export async function GET() {
 			cache: 'no-store',
 		});
 
+
 		if (!resp.ok) {
-			console.log('FAILED:', path, resp.status);
+			failedCount++;
 			return { endpoint: path, error: resp.status };
 		}
 
@@ -50,8 +52,8 @@ export async function GET() {
 	}
 
 	return Response.json({
-		status: 'ok',
+		status: 'OK',
 		message: 'All endpoints fetched successfully',
-		results: allResults,
+		failedCount: failedCount,
 	});
 }
